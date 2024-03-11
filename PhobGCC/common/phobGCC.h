@@ -2310,6 +2310,16 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	skipAHyst = ess::remap(&remappedAx, &remappedAy, controls.extras[ess::extrasEssConfigSlot].config);
 #endif
 
+	bool shield_drops = false;
+#ifdef EXTRAS_YSD
+	shield_drops = true;
+#endif
+
+
+	if (shield_drops) {
+		ysd::shieldDrop(&pin,aStickX,aStickY,raw.axRaw, raw.ayRaw, &hardware, &controls);
+	};
+
 	float hystVal = 0.3;
 	//assign the remapped values to the button struct
 	if(readA){
