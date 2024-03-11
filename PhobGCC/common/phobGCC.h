@@ -2787,13 +2787,11 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				{
 					if (posAx < 0.0)
 					{
-						remappedAx = -67.0;
-						remappedAy = -67.0;
+						remappedAy = -67.5;
 					}
 					else
 					{
-						remappedAx = 67.0;
-						remappedAy = -67.0;
+						remappedAy = -67.5;
 					};
 				};
 			};
