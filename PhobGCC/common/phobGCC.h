@@ -2194,8 +2194,8 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 			settingChangeCount++;
 #ifdef RUMBLE
 			changeRumble(INCREASE, btn, hardware, controls);
-#else // RUMBLE
-	  // nothing
+#else  // RUMBLE
+	   // nothing
 			freezeSticks(2000, btn, hardware);
 #endif // RUMBLE
 		}
@@ -2204,8 +2204,8 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 			settingChangeCount++;
 #ifdef RUMBLE
 			changeRumble(DECREASE, btn, hardware, controls);
-#else // RUMBLE
-	  // nothing
+#else  // RUMBLE
+	   // nothing
 			freezeSticks(2000, btn, hardware);
 #endif // RUMBLE
 		}
@@ -2785,14 +2785,8 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 			{
 				if ((posAx < 23.0) && (posAx > -23.0))
 				{
-					if (posAx < 0.0)
-					{
-						remappedAy = -69.0;
-					}
-					else
-					{
-						remappedAy = -69.0;
-					};
+					remappedAx = 75.0;
+					remappedAy = -69.0;
 				};
 			};
 		};
