@@ -2789,8 +2789,8 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				if (posAy
 					< 0.0)
 					{
-						xOut = 73.0;
-						yOut = 73.0;
+						raw.axRaw = 73.0;
+						raw.ayRaw = 73.0;
 					};
 			};
 	};
