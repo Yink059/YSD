@@ -2770,7 +2770,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	shield_drops = true;
 #endif
 
-	if (shield_drops)
+	if (true)//(shield_drops)
 	{
 		// get shielding state
 		bool shield_state = false;
@@ -2789,8 +2789,8 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				if (posAy
 					< 0.0)
 					{
-						raw.axRaw = 73.0;
-						raw.ayRaw = 73.0;
+						remappedAx = 73.0;
+						remappedAy = 73.0;
 					};
 			};
 	};
