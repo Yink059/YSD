@@ -2778,19 +2778,19 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 		{
 			shield_state = true;
 		};
-		float x = xIn;
-		float y = yIn;
+		float x = posAx;
+		float y = posAy;
 		float magnitude = sqrt((x * x) + (y * y));
 		float angle = atan(y / x);
 
 		if (magnitude > 72.0)
 			&&(shield_state)
 			{
-				if yIn
+				if posAy
 					< 0.0
 					{
-						xOut = 73;
-						yOut = 73;
+						xOut = 73.0;
+						yOut = 73.0;
 					};
 			};
 	};
