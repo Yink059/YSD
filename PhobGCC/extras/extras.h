@@ -15,6 +15,10 @@
 #include "ess.h"
 #endif
 
+#ifdef EXTRAS_ESS
+#include "ysd.h"
+#endif
+
 typedef bool(*ExtrasToggleFn)(IntOrFloat config[]);//Used for toggling extras
 typedef void(*ExtrasConfigFn)(IntOrFloat config[], Cardinals dpad);//Used for configuring extras with the Dpad
 
@@ -71,6 +75,15 @@ void extrasInit() {
 	debug_println("Extra: Enabling ESS functionality...");
 	extrasConfigAssign(ess::extrasEssConfigSlot, ess::toggle, NULL);
 #endif
+
+#ifdef EXTRAS_YSD
+	//-----------------------------------------
+	ysd::extrasEssConfigSlot = EXTRAS_LEFT;
+	//-----------------------------------------
+	debug_println("Extra: Enabling YSD functionality...");
+	extrasConfigAssign(ysd::extrasEssConfigSlot, ysd::toggle, NULL);
+#endif
+
 
 }
 
