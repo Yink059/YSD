@@ -2774,7 +2774,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	{
 		// get shielding state
 		bool shield_state = false;
-		if (hardware.La || hardware.Ra ||hardware.L || hardware.R)
+		if (hardware.L || hardware.R)
 		{
 			shield_state = true;
 		};
@@ -2787,10 +2787,16 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 			&&(shield_state))
 			{
 				if (posAy
-					< 0.0)
+					< 3.0)
 					{
-						remappedAx = 73.0;
-						remappedAy = 73.0;
+						if posAx < 0 {
+							remappedAx = -73.0;
+							remappedAy = -73.0;
+						} else
+						{
+							remappedAx = 73.0;
+							remappedAy = -73.0;
+						}
 					};
 			};
 	};
