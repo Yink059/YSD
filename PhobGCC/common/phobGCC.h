@@ -2765,12 +2765,12 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	skipAHyst = ess::remap(&remappedAx, &remappedAy, controls.extras[ess::extrasEssConfigSlot].config);
 #endif
 
-	bool shield_drops = false;
+	bool shield_drops_enabled = false;
 #ifdef EXTRAS_YSD
-	shield_drops = true;
+	shield_drops_enabled = ysd::check_enabled();
 #endif
 
-	if (shield_drops)
+	if (shield_drops_enabled)
 	{
 		// get shielding state
 		bool shield_state = false;

@@ -20,6 +20,14 @@ namespace ysd {
 		YSD_ENABLED
 	};
 
+
+	bool check_enabled() {
+		if (config[YSD_SETTING_ENABLE].intValue != YSD_ENABLED) {
+			return false; //do nothing, keep hyst enabled
+		}
+		return true;
+	}
+
 	bool toggle(IntOrFloat config[]) {
 		int& enabled = config[YSD_SETTING_ENABLE].intValue;
 		if (enabled != YSD_DISABLED){
