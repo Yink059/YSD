@@ -2786,8 +2786,8 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 		if ((magnitude > 72.0)
 			&&(shield_state))
 			{
-				if posAy
-					< 0.0
+				if (posAy
+					< 0.0)
 					{
 						xOut = 73.0;
 						yOut = 73.0;
