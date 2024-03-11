@@ -2772,7 +2772,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 
 	if (shield_drops)
 	{
-		readButtons(pin, hardware);
+		readButtons(pin, &hardware);
 		hardware.La = (uint8_t)readLa(pin, controls.lTrigInitial, 1);
 		hardware.Ra = (uint8_t)readRa(pin, controls.rTrigInitial, 1);
 		// get shielding state
