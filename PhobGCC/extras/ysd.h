@@ -6,7 +6,7 @@
 namespace ysd {
 
 
-	ExtrasSlot extrasYsdConfigSlot = EXTRAS_UNSET;
+	ExtrasSlot extrasYsdConfigSlot = EXTRAS_LEFT;
 
 	enum YsdSettings{
 		YSD_SETTING_ENABLE,
@@ -21,7 +21,7 @@ namespace ysd {
 	};
 
 
-	bool check_enabled() {
+	bool check_enabled(const IntOrFloat config[]) {
 		if (config[YSD_SETTING_ENABLE].intValue != YSD_ENABLED) {
 			return false; //do nothing, keep hyst enabled
 		}
