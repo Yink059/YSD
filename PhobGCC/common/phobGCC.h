@@ -2177,7 +2177,7 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 		}
 		else if (hardware.A && hardware.B && hardware.Z && hardware.Dd)
 		{ // Hard Reset
-			// actually do nothing, this is just to prevent other things from happening
+		  // actually do nothing, this is just to prevent other things from happening
 		}
 		else if (hardware.A && hardware.X && hardware.Y && hardware.Z)
 		{ // Toggle Auto-Initialize
@@ -2194,8 +2194,8 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 			settingChangeCount++;
 #ifdef RUMBLE
 			changeRumble(INCREASE, btn, hardware, controls);
-#else  // RUMBLE
-	   // nothing
+#else // RUMBLE
+	  // nothing
 			freezeSticks(2000, btn, hardware);
 #endif // RUMBLE
 		}
@@ -2204,8 +2204,8 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 			settingChangeCount++;
 #ifdef RUMBLE
 			changeRumble(DECREASE, btn, hardware, controls);
-#else  // RUMBLE
-	   // nothing
+#else // RUMBLE
+	  // nothing
 			freezeSticks(2000, btn, hardware);
 #endif // RUMBLE
 		}
@@ -2772,7 +2772,32 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 
 	if (shield_drops)
 	{
-		ysd::shieldDrop(&pin, aStickX, aStickY, raw.axRaw, raw.ayRaw, &hardware, &controls);
+		readButtons(pin, btns);
+		btns.La = (uint8_t)readLa(pin, controls.lTrigInitial, 1);
+		btns.Ra = (uint8_t)readRa(pin, controls.rTrigInitial, 1);
+		btns.L;
+		btns.R;
+		// get shielding state
+		bool shield_state = false;
+		if (btns.La || btns.Ra || btns.L || btns.R)
+		{
+			shield_state = true;
+		};
+		float x = xIn;
+		float y = yIn;
+		float magnitude = sqrt((x * x) + (y * y));
+		float angle = atan(y / x);
+
+		if (magnitude > 72.0)
+			&&(shield_state)
+			{
+				if yIn
+					< 0.0
+					{
+						xOut = 73;
+						yOut = 73;
+					};
+			};
 	};
 
 	float hystVal = 0.3;

@@ -78,10 +78,10 @@ void extrasInit() {
 
 #ifdef EXTRAS_YSD
 	//-----------------------------------------
-	ysd::extrasEssConfigSlot = EXTRAS_LEFT;
+	ysd::extrasYsdConfigSlot = EXTRAS_LEFT;
 	//-----------------------------------------
 	debug_println("Extra: Enabling YSD functionality...");
-	extrasConfigAssign(ysd::extrasEssConfigSlot, ysd::toggle, NULL);
+	extrasConfigAssign(ysd::extrasYsdConfigSlot, ysd::toggle, NULL);
 #endif
 
 
