@@ -2770,7 +2770,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	shield_drops = true;
 #endif
 
-	if (true)//(shield_drops)
+	if (true) //(shield_drops)
 	{
 		// get shielding state
 		bool shield_state = false;
@@ -2778,27 +2778,26 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 		{
 			shield_state = true;
 		};
-		float x = posAx;
-		float y = posAy;
-		float magnitude = sqrt((x * x) + (y * y));
-		float angle = atan(y / x);
 
-		if ((magnitude > 3.0)
-			&&(shield_state))
+		if (shield_state)
+		{
+			if ((posAy < -22.0) && (posAy > -56.0))
 			{
-				if (posAy
-					< 3.0)
+				if ((posAx < 23.0) && (posAx > -23.0))
+				{
+					if (posAx < 0.0)
 					{
-						if (posAx < 0) {
-							remappedAx = -73.0;
-							remappedAy = -73.0;
-						} else
-						{
-							remappedAx = 73.0;
-							remappedAy = -73.0;
-						};
+						remappedAx = -67.0;
+						remappedAy = -67.0;
+					}
+					else
+					{
+						remappedAx = 67.0;
+						remappedAy = -67.0;
 					};
+				};
 			};
+		};
 	};
 
 	float hystVal = 0.3;
