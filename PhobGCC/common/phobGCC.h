@@ -2783,7 +2783,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 		float magnitude = sqrt((x * x) + (y * y));
 		float angle = atan(y / x);
 
-		if ((magnitude > 72.0)
+		if ((magnitude > 3.0)
 			&&(shield_state))
 			{
 				if (posAy
