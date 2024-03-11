@@ -1,6 +1,5 @@
 #include "../common/structsAndEnums.h"
 #include <math.h>
-#include "../teensy/readHardware.h"
 #ifndef EXTRAS_YSD_H
 #define EXTRAS_YSD_H
 

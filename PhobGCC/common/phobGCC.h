@@ -2770,11 +2770,11 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 	shield_drops = true;
 #endif
 
-	if (true) //(shield_drops)
+	if (shield_drops)
 	{
 		// get shielding state
 		bool shield_state = false;
-		if (hardware.L || hardware.R)
+		if (hardware.L || hardware.R || hardware.La > 40 || hardware.Ra > 40)
 		{
 			shield_state = true;
 		};
