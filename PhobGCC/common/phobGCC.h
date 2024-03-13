@@ -867,6 +867,10 @@ void setJumpConfig(JumpConfig jumpConfig, ControlConfig &controls)
 	setJumpSetting(controls.jumpConfig);
 }
 
+void setShieldDropOffset(float i, ControlConfig &controls) {
+	controls.shieldDropOffset = i;
+}
+
 void toggleExtra(ExtrasSlot slot, Buttons &btn, Buttons &hardware, ControlConfig &controls)
 {
 	ExtrasToggleFn toggleFn = extrasFunctions[slot].toggleFn;
@@ -2134,12 +2138,12 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 
 	if (!controls.safeMode) {
 			if (hardware.A && hardware.X && hardware.Dd) {
-				setShieldDropOffset(1);
+				setShieldDropOffset(controls.shieldDropOffset + 1.0);
 				commitSettings();
 				freezeSticks(500, btn, hardware);
 			}
 			if (hardware.A && hardware.X && hardware.Du) {
-				setShieldDropOffset(-1);
+				setShieldDropOffset(controls.shieldDropOffset - 1.0);
 				commitSettings();
 				freezeSticks(500, btn, hardware);
 			}

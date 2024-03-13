@@ -7,7 +7,7 @@ namespace ysd {
 
 
 	ExtrasSlot extrasYsdConfigSlot = EXTRAS_LEFT;
-	float offset = -54.0;
+	
 	enum YsdSettings{
 		YSD_SETTING_ENABLE,
 		YSD_SETTING_UNUSED1,
