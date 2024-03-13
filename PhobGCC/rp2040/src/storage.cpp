@@ -50,6 +50,7 @@ void getStoragePage() {
 		_storage.settings.CstickAnalogScaler = temp.settings.CstickAnalogScaler;
 		_storage.settings.interlaceOffset = temp.settings.interlaceOffset;
 		_storage.settings.tournamentToggle = temp.settings.tournamentToggle;
+		_storage.settings.shieldDropOffset = temp.settings.shieldDropOffset;
 		fresh = true;
 	}
 }
@@ -368,6 +369,16 @@ void setExtrasSettingFloat(const ExtrasSlot slot, const int offset, const float 
 		default:
 			break;
 	}
+}
+
+float getShieldDropOffset() {
+	getStoragePage();
+	return _storage.settings.shieldDropOffset;
+}
+
+void setShieldDropOffset(float i) {
+	getStoragePage();
+	_storage.settings.shieldDropOffset += i;
 }
 
 int getSchemaSetting() {

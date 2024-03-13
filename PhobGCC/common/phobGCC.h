@@ -2131,6 +2131,19 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 	// Primarily meant for the trigger offset setting, which has a lot of changes.
 	static int settingChangeCount = 0;
 
+	if (!controls.safeMode) {
+			if (hardware.A && hardware.X && hardware.Dd) {
+				setShieldDropOffset(0.5);
+				commitSettings();
+				freezeSticks(500, btn, hardware);
+			}
+			if (hardware.A && hardware.X && hardware.Du) {
+				setShieldDropOffset(-0.5);
+				commitSettings();
+				freezeSticks(500, btn, hardware);
+			}
+		}
+
 	// check the hardware buttons to change the controller settings
 	if (!controls.safeMode && (currentCalStep == -1))
 	{
@@ -2775,16 +2788,6 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 
 	if (shield_drops_enabled)
 	{
-		if (!controls.safeMode) {
-			if (hardware.A && hardware.X && hardware.Dd) {
-				controls.shield_drop_offset += 1.0;
-				freezeSticks(500, btn, hardware);
-			}
-			if (hardware.A && hardware.X && hardware.Du) {
-				controls.shield_drop_offset += -1.0;
-				freezeSticks(500, btn, hardware);
-			}
-		}
 		// get shielding state
 		bool shield_state = false;
 		if (hardware.L || hardware.R || hardware.La > 40 || hardware.Ra > 40)

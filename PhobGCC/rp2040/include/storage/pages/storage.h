@@ -47,6 +47,7 @@ struct Storage {
 		int CstickAnalogScaler;
 		int interlaceOffset;
 		int tournamentToggle;
+		float shieldDropOffset;
 	} settings;
 };
 
@@ -129,5 +130,8 @@ void setInterlaceOffsetSetting(const int);
 
 int getTournamentToggleSetting();
 void setTournamentToggleSetting(const int);
+
+float getShieldDropOffest();
+void setShieldDropOffset(float);
 
 #endif //STORAGE_H
