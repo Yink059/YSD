@@ -2766,12 +2766,25 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 #endif
 
 	bool shield_drops_enabled = false;
+	float shield_drop_offset = -54.0;
+	float 
 #ifdef EXTRAS_YSD
 	shield_drops_enabled = ysd::check_enabled(controls.extras[ysd::extrasYsdConfigSlot].config);
+	shield_drop_offset = controls.shield_drop_offset;
 #endif
 
 	if (shield_drops_enabled)
 	{
+		if (!controls.safeMode) {
+			if (hardware.A && hardware.X && hardware.Dd) {
+				controls.shield_drop_offset += 1.0;
+				freezeSticks(500, btn, hardware);
+			}
+			if (hardware.A && hardware.X && hardware.Du) {
+				controls.shield_drop_offset += -1.0;
+				freezeSticks(500, btn, hardware);
+			}
+		}
 		// get shielding state
 		bool shield_state = false;
 		if (hardware.L || hardware.R || hardware.La > 40 || hardware.Ra > 40)

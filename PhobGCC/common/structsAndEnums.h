@@ -230,6 +230,7 @@ struct ControlConfig{
 	const int interlaceOffsetMax;
 #endif //PICO_RP2040
 	ExtrasConfig extras[EXTRAS_SIZE];
+	float shield_drop_offset;
 };
 
 struct FilterGains {
