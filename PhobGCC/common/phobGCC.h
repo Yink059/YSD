@@ -2779,7 +2779,6 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 #endif
 
 	bool shield_drops_enabled = false;
-	float 
 #ifdef EXTRAS_YSD
 	shield_drops_enabled = ysd::check_enabled(controls.extras[ysd::extrasYsdConfigSlot].config);
 #endif
