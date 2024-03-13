@@ -47,6 +47,7 @@ namespace Eeprom {
 	const int _eepromAstickAnalogScaler = _eepromCstickCardinalSnapping+_bytesPerFloat;
 	const int _eepromCstickAnalogScaler =_eepromAstickAnalogScaler+_bytesPerFloat;
 	const int _eepromTournamentToggle = _eepromCstickAnalogScaler+_bytesPerFloat;
+	const int _eepromShieldDropOffset = _eepromShieldDropOffset+_bytesPerFloat;
 	//const int _nextSetting = _eepromCstickAnalogScaler+bytesPerFloat;
 };
 
@@ -188,6 +189,16 @@ int getRumbleSetting() {
 
 void setRumbleSetting(const int rumble) {
 	EEPROM.put(Eeprom::_eepromRumble, rumble);
+};
+
+int getShieldDropOffset() {
+	int output;
+	EEPROM.get(Eeprom::_eepromShieldDropOffset, output);
+	return output;
+};
+
+void setShieldDropOffset(const int offset) {
+	EEPROM.put(Eeprom::_eepromShieldDropOffset, offset);
 };
 
 int getAutoInitSetting() {

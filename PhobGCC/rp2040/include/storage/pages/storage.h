@@ -131,7 +131,7 @@ void setInterlaceOffsetSetting(const int);
 int getTournamentToggleSetting();
 void setTournamentToggleSetting(const int);
 
-float getShieldDropOffest();
+int getShieldDropOffest();
 void setShieldDropOffset(float);
 
 #endif //STORAGE_H

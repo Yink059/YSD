@@ -98,6 +98,7 @@ ControlConfig _controls{
 	.tournamentToggle = 0,
 	.tournamentToggleMin = 0,
 	.tournamentToggleMax = 5,
+	.shieldDropOffset = -54.0,
 #ifdef PICO_RP2040
 	.interlaceOffset = 0,
 	.interlaceOffsetMin = -150,
@@ -2133,12 +2134,12 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 
 	if (!controls.safeMode) {
 			if (hardware.A && hardware.X && hardware.Dd) {
-				setShieldDropOffset(0.5);
+				setShieldDropOffset(1);
 				commitSettings();
 				freezeSticks(500, btn, hardware);
 			}
 			if (hardware.A && hardware.X && hardware.Du) {
-				setShieldDropOffset(-0.5);
+				setShieldDropOffset(-1);
 				commitSettings();
 				freezeSticks(500, btn, hardware);
 			}
@@ -2799,7 +2800,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				if ((posAx < 23.0) && (posAx > -23.0))
 				{
 					remappedAx = 0.0;
-					remappedAy = getShieldDropOffest();
+					remappedAy = float(getShieldDropOffset());
 				};
 			};
 		};
