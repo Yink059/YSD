@@ -2800,7 +2800,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				if ((posAx < 23.0) && (posAx > -23.0))
 				{
 					remappedAx = 0.0;
-					remappedAy = float(getShieldDropOffset());
+					remappedAy = controls.shieldDropOffset;
 				};
 			};
 		};

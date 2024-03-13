@@ -224,13 +224,13 @@ struct ControlConfig{
 	int tournamentToggle;
 	const int tournamentToggleMin;
 	const int tournamentToggleMax;
+	float shieldDropOffset;
 #ifdef PICO_RP2040
 	int interlaceOffset;
 	const int interlaceOffsetMin;
 	const int interlaceOffsetMax;
 #endif //PICO_RP2040
 	ExtrasConfig extras[EXTRAS_SIZE];
-	float shield_drop_offset;
 };
 
 struct FilterGains {
