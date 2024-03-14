@@ -51,7 +51,7 @@ void config(IntOrFloat config[], Cardinals dpad)
     }
     
     if (dpad.r) {
-        return
+        return;
     }
 }
 
