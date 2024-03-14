@@ -2784,8 +2784,10 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 #endif
 
 	bool shield_drops_enabled = false;
+	float shield_drop_offset = -54.0;
 #ifdef EXTRAS_YSD
 	shield_drops_enabled = ysd::check_enabled(controls.extras[ysd::extrasYsdConfigSlot].config);
+	shield_drop_offset = ysd::getOffset();
 #endif
 
 	if (shield_drops_enabled)
@@ -2804,7 +2806,7 @@ void readSticks(int readA, int readC, Buttons &btn, Pins &pin, RawStick &raw, co
 				if ((posAx < 23.0) && (posAx > -23.0))
 				{
 					remappedAx = 0.0;
-					remappedAy = controls.shieldDropOffset;
+					remappedAy = shield_drop_offset;
 				};
 			};
 		};

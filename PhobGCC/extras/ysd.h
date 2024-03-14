@@ -40,11 +40,19 @@ namespace ysd
 
 	void config(IntOrFloat config[], Cardinals dpad)
 	{
-		if (dpad == Cardinals::d) {
-			setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, ysd::getOffset() + 1.0);
-		}
-		if (dpad == Cardinals::u) {
-			setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, ysd::getOffset() - 1.0);
+		switch (dpad)
+		{
+		case Cardinals::u:
+			/* code */
+			setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, getOffset() + 1.0);
+		case Cardinals::d:
+			setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, getOffset() - 1.0);
+			break;
+		case Cardinals::l:
+			setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, -54.0);
+			break
+		default:
+			break;
 		}
 	}
 
