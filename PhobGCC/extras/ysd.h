@@ -14,7 +14,7 @@ namespace ysd
 	{
 		YSD_SETTING_ENABLE,
 		YSD_SETTING_OFFSET,
-		YSD_SETTING_UNUSED2,
+		YSD_SETTING_COUNTER,
 		YSD_SETTING_UNUSED3
 	};
 
@@ -41,17 +41,16 @@ namespace ysd
 void config(IntOrFloat config[], Cardinals dpad)
 {
     if (dpad.u) {
-        setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, getOffset() + 1.0);
+        setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, -53.0);
     }
     if (dpad.d) {
-        setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, getOffset() - 1.0);
+        setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, -55.0);
     }
     if (dpad.l) {
         setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, -54.0);
     }
-    
     if (dpad.r) {
-        return;
+        setExtrasSettingFloat(extrasYsdConfigSlot, YSD_SETTING_OFFSET, 100.0);
     }
 }
 
